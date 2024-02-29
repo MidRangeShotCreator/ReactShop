@@ -1,5 +1,5 @@
 function Header() {
-    return <nav className="light-blue accent-2">
+    return <nav className="teal lighten-2">
         <div className="container">
             <div className="nav-wrapper">
                 <a href="!#" className="brand-logo">React Shop</a>
