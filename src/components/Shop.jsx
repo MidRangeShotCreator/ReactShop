@@ -37,11 +37,15 @@ function Shop() {
         setOrder(newOrder);
     };
 
-    const [isBasketShow, setBasketShow] = useState(true);
+    const [isBasketShow, setBasketShow] = useState(false);
     const [alertName, setAlertName] = useState("");
 
     const handleBasketShow = () => {
         setBasketShow(!isBasketShow);
+    };
+
+    const alwaysBasketShow = () => {
+        setBasketShow(true);
     };
 
     const closeAlert = () => {
@@ -97,24 +101,27 @@ function Shop() {
     }, []);
 
     return(
+        <>
         <main className="container content">
             <Cart quantity={order.length} handleBasketShow={handleBasketShow} />
             {loading ? (
                 <Preloader /> 
             ) : (
-                <GoodsList goods={goods} addToBasket={addToBasket} />
+                <GoodsList goods={goods} alwaysBasketShow={alwaysBasketShow} addToBasket={addToBasket} />
             )}
-            {isBasketShow && (
-                <BasketList 
-                    order={order} 
-                    handleBasketShow={handleBasketShow}
-                    removeFromBasket={removeFromBasket}
-                    incQuantity={incQuantity}
-                    decQuantity={decQuantity}
-                />
-            )}
+            
             {alertName && <Alert name={alertName} closeAlert={closeAlert} />}
         </main>
+        {isBasketShow && (
+            <BasketList 
+                order={order} 
+                handleBasketShow={handleBasketShow}
+                removeFromBasket={removeFromBasket}
+                incQuantity={incQuantity}
+                decQuantity={decQuantity}
+            />
+        )}
+    </>
     );
 }
 

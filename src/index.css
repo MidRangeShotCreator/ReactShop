@@ -100,3 +100,25 @@ code {
     -o-transform: translateY(0rem);
   }
 }
+
+.collection {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
+  width: 1280px;
+  left: 50%;
+  bottom: 10px;
+  transform: translate(-50%, -10px);
+}
+
+@media all and (max-width: 1300px) {
+  .collection{
+   width: 90%;
+  }
+}
+
+.orders {
+  display: flex;
+  flex-direction: column;
+}

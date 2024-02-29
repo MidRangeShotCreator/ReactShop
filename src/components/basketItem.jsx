@@ -10,8 +10,8 @@ function BasketItem(props) {
     } = props;
 
     return (
-        <ul className="collection">
-            <li className="collection-item ">
+        
+            <div className="collection-item ">
                 {name}{" "} 
                 <i 
                     class="material-icons basket-quantity"
@@ -30,8 +30,8 @@ function BasketItem(props) {
                 <span class="secondary-content" onClick={() => removeFromBasket(id)}>
                     <i class="material-icons basket-delete">clear</i>
                 </span>
-            </li>
-        </ul>
+            </div>
+        
     );
 }
 

@@ -14,28 +14,30 @@ function BasketList(props) {
     }, 0);
 
     return (
-        <ul className="collection">
-            <li className="collection-item active">Корзина</li>
-            {order.length ? (
-                order.map((item) => (
-                    <BasketItem 
-                        key={item.id} 
-                        removeFromBasket={removeFromBasket}
-                        incQuantity={incQuantity}
-                        decQuantity={decQuantity}
-                        {...item} 
-                    /> 
-                ))
-            ) : (
-                <li className="collection-item ">Корзина пуста</li>
-            )}
-            <li className="collection-item active">
+        <div className="collection">
+            <span className="collection-item active">Корзина</span>
+            <div className="orders">
+                {order.length ? (
+                    order.map((item) => (
+                        <BasketItem 
+                            key={item.id} 
+                            removeFromBasket={removeFromBasket}
+                            incQuantity={incQuantity}
+                            decQuantity={decQuantity}
+                            {...item} 
+                        /> 
+                    ))
+                ) : (
+                    <span className="collection-item ">Корзина пуста</span>
+                )}
+            </div>
+            <span className="collection-item active">
                 Общая стоимость заказа: {totalPrice} руб.
-            </li>
+            </span>
             <i class="material-icons basket-clear" onClick={handleBasketShow}>
                 clear
             </i>
-        </ul>
+        </div>
     );
 }
 
